@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-Day SOP STEM + Computer + AI learning plan for grades 1 to 9</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-main: #f8fafc;
+    --card-bg: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(253,16%,7%,0.03) 0, transparent 50%), 
+      radial-gradient(at 50% 0%, hsla(225,39%,30%,0.03) 0, transparent 50%), 
+      radial-gradient(at 100% 0%, hsla(339,49%,30%,0.03) 0, transparent 50%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  h1.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    text-align: center;
+  }
+
+  .grade-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+  }
+
+  .gbtn {
+    border: 1px solid var(--border-color);
+    border-radius: 99px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--card-bg);
+    color: var(--text-secondary);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+
+  .gbtn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .gbtn:hover:not(.active) {
+    background: #f1f5f9;
+    color: var(--text-primary);
+  }
+
+  .legend {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .b-stem { background: #dcfce7; color: #166534; }
+  .b-comp { background: #dbeafe; color: #1e40af; }
+  .b-ai { background: #f3e8ff; color: #6b21a8; }
+  .b-proj { background: #ffedd5; color: #9a3412; }
+  .b-show { background: #fee2e2; color: #991b1b; }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+    overflow: hidden;
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-head {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(248, 250, 252, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+  }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .card-sub {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: #f1f5f9;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .tbl-wrap {
+    overflow-x: auto;
+  }
+
+  .tbl {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    table-layout: fixed;
+  }
+
+  .tbl th {
+    background: var(--card-bg);
+    color: var(--text-secondary);
+    font-weight: 600;
+    padding: 14px 20px;
+    text-align: left;
+    border-bottom: 2px solid var(--border-color);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .tbl td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: top;
+    color: var(--text-primary);
+    transition: background-color 0.15s ease;
+  }
+
+  .tbl tr:last-child td {
+    border-bottom: none;
+  }
+
+  .tbl tr:hover td {
+    background: #f8fafc;
+  }
+
+  .daynum { font-weight: 700; color: var(--text-secondary); width: 60px; }
+  .type-cell { width: 120px; }
+  .topic-cell { width: 220px; font-weight: 600; color: var(--text-primary); }
+  .act-cell { color: var(--text-secondary); line-height: 1.5; }
+  .time-cell { width: 80px; color: var(--text-secondary); font-weight: 500; white-space: nowrap; text-align: right; }
+
+  @media (max-width: 768px) {
+    body { padding: 1rem; }
+    .card-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="title">STEM + Computer + AI Learning Plan</h1>
+  <div class="grade-bar" id="gradeBar"></div>
+  <div class="legend">
+    <span class="badge b-stem">● STEM</span>
+    <span class="badge b-comp">● Computer</span>
+    <span class="badge b-ai">● AI / ML</span>
+    <span class="badge b-proj">● Project</span>
+    <span class="badge b-show">● Showcase</span>
+  </div>
+  <div class="card" id="planCard">
+    <div class="card-head">
+      <span class="card-title" id="cardTitle">Grade 1</span>
+      <span class="card-sub" id="cardSub">Age 6–7</span>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th class="daynum">Day</th>
+            <th class="type-cell">Type</th>
+            <th class="topic-cell">Topic</th>
+            <th class="act-cell">Activity</th>
+            <th class="time-cell">Time</th>
+          </tr>
+        </thead>
+        <tbody id="planBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+const T={stem:"b-stem",comp:"b-comp",ai:"b-ai",proj:"b-proj",show:"b-show"};
+const TL={stem:"STEM",comp:"Computer",ai:"AI / ML",proj:"Project",show:"Showcase"};
+
+const plans = {
+  1: {
+    "age": "6-7",
+    "days": [
+      [1, "comp", "What is a Computer?", "Identify a computer, its size, where they've seen it", 45],
+      [2, "comp", "Parts of a Computer", "Monitor, CPU, keyboard, mouse – basic names and use", 45],
+      [3, "stem", "STEAM?", "What is STEAM? tell future. scope", 60],
+      [4, "stem", "circuit", "how does circuit works and safety rules", 45],
+      [5, "comp", "Types of Machines", "Differentiate between man-made machines vs. computers", 45],
+      [6, "comp", "What Computers Can Do", "Watch pictures/videos of computers doing various tasks", 45],
+      [7, "stem", "Make light!", "Students connect battery + LED + wire to make a circuit (no Arduino).", 45],
+      [8, "comp", "Turning On/Off", "Safety of turning on/off, guided practice", 45],
+      [9, "comp", "Computers Around Us", "Home, school, banks – visual examples", 45],
+      [10, "stem", "Push button magic", "Show on breadboard how does buttons and led works", 45],
+      [11, "comp", "Keyboard Basics", "Observe, touch different keys, say letter names", 45],
+      [12, "stem", "Sound: buzzer", "Teacher powers active buzzer. Students hear and feel the vibration.", 45],
+      [13, "comp", "Mouse Basics", "Learn click, double click, right click, drag", 45],
+      [14, "comp", "What is Software?", "Simple explanation: software tells computer what to do", 45],
+      [15, "stem", "Colors! RGB LED", "Teacher shows RGB LED changing color. Students shout the color name.", 45],
+      [16, "comp", "Examples of Software", "Paint, Word, Video player – observe interface", 45],
+      [17, "comp", "Why Computers Are Useful", "Watch videos, real-life applications: shops, hospitals", 45],
+      [18, "stem", "Light and dark sensor", "Cover photoresistor with finger — LED goes brighter! Observe why.", 45],
+      [19, "comp", "What NOT to Do", "Don't bang keys, unplug wires – role play", 45],
+      [20, "comp", "Internet – What Is It?", "Explain using story: internet helps us learn, watch, play", 45],
+      [21, "comp", "Internet Safety Rules", "Don't click on pop-ups, ask adult, no chatting with strangers", 45],
+      [22, "stem", "How motors spin?", "Teacher demos DC motor spinning. Students blow on a paper windmill to compare.", 45],
+      [23, "comp", "Passwords & Personal Info", "Never share birthday, name – storytelling", 45],
+      [24, "stem", "Night light project", "LDR + LED: lights up in the dark. Teacher builds, students test.", 45],
+      [25, "comp", "Good Digital Citizen", "Sharing computer time, using it responsibly", 45],
+      [26, "comp", "Safe Use Poster", "Students make 'How to Use Computer Safely' posters", 45],
+      [27, "proj", "STEM show and tell", "Each student shows their favorite circuit. 'What does this do?'", 45],
+      [28, "comp", "Educational Games", "Use basic safe online or offline games", 45],
+      [29, "comp", "My Computer Story", "Share drawings and typing with peers", 45],
+      [30, "show", "Showcase day!", "Share yearbook + STEM project. Tiny certificates for all!", 45]
+    ]
+  },
+  2: {
+    "age": "7-8",
+    "days": [
+      [1, "comp", "Computer – A Smart Machine", "Differentiate computer from other machines; recall last year", 45],
+      [2, "comp", "Rules While Using Computers", "Dos and Don'ts posters – collaborative classroom chart", 45],
+      [3, "stem", "Arduino Uno tour", "Name every part: GND, 5V, digital pins, USB port. Safety rules.", 45],
+      [4, "stem", "Blinking LED (Arduino)", "Teacher uploads Blink code. Students watch LED blink and count.", 45],
+      [5, "comp", "Input vs Output Devices", "Flashcard activity – sort images of keyboard, printer, speakers etc.", 45],
+      [6, "comp", "Storage Devices", "Intro to USB, hard disk, CD – real-life examples", 45],
+      [7, "stem", "External LED blink", "Students wire LED + resistor on breadboard. Teacher uploads code.", 45],
+      [8, "comp", "File Icons and Extensions", ".jpg, .png, .doc – just exposure via examples", 45],
+      [9, "comp", "Software Recap", "Paint, Word, Typing tutor – usage reflection", 45],
+      [10, "stem", "Push button LED", "Students connect button + LED. Press to light, release to off.", 45],
+      [11, "comp", "Word Processor Intro", "Open MS Word / WordPad – type sentences", 45],
+      [12, "stem", "Doorbell circuit", "Active buzzer + push button. Press = beep! Wire independently.", 45],
+      [13, "comp", "What is the Internet?", "Explain simply: world of information + safe exploration", 45],
+      [14, "comp", "Internet Icons and Browsers", "Chrome, Firefox – what they look like", 45],
+      [15, "stem", "Potentiometer: dimmer", "Turn knob left/right — LED gets brighter or dimmer. Why?", 45],
+      [16, "comp", "Search Engines Intro", "Explain what searching means; do a basic search with teacher", 45],
+      [17, "stem", "Night light (LDR)", "Photoresistor + LED: cover sensor = LED turns on. Test in groups.", 45],
+      [18, "comp", "Being Safe Online", "Don't talk to strangers, don't click on pop-ups", 45],
+      [19, "comp", "Online Manners", "Don't type bad words, take turns, ask adult first", 45],
+      [20, "stem", "RGB traffic light", "Students set RGB LED to Red/Yellow/Green. Discuss traffic rules.", 45],
+      [21, "comp", "Group Presentation", "Show & tell what you've made", 45],
+      [22, "proj", "Traffic light project", "Students wire RGB LED + 3 buttons. Each button = one color.", 45],
+      [23, "comp", "Folders & Organization", "Create folders with name, color-code images", 45],
+      [24, "stem", "Passive buzzer tune", "Upload code that plays Twinkle Twinkle. Change one note!", 45],
+      [25, "comp", "Saving Files", "Save, Save As – practice in Paint/Word", 45],
+      [26, "comp", "Formatting Text", "Bold, Italics, Underline, Font Size", 45],
+      [27, "proj", "Circuit show-off", "Each student explains one circuit they built. Peer questions.", 45],
+      [28, "comp", "Internet Exploration", "Use Kids YouTube, Wikipedia Kids – guided teacher session", 45],
+      [29, "comp", "Typing Challenge", "Speed typing: name, class, school, etc.", 45],
+      [30, "show", "Mini book + STEM fair", "Share mini book pages. Demo one circuit. Celebrate!", 45]
+    ]
+  },
+  3: {
+    "age": "8-9",
+    "days": [
+      [1, "comp", "Operating Systems & Desktop", "Identify desktop, taskbar, start menu", 45],
+      [2, "stem", "Microcontroller", "explain what is microcontroller? UNO/ESP", 45],
+      [3, "comp", "Icons & Shortcuts", "Create desktop shortcut, identify common icons", 45],
+      [4, "comp", "GUI Applications", "Switch between open windows, resize, minimize/maximize", 45],
+      [5, "comp", "File Types & Extensions", "Recognize .doc, .jpg, .png, .xlsx", 45],
+      [6, "stem", "Smooth LED (PWM)", "Students modify delay and brightness values. See the difference.", 45],
+      [7, "stem", "Motor", "Show how does motors works", 45],
+      [8, "comp", "Backing Up Data", "Introduction to USB backup process", 45],
+      [9, "stem", "Push button independently", "Students wire and upload push button LED code alone.", 45],
+      [10, "comp", "File Compression Concept", "Understand why zipping files helps, demo with simple tool", 45],
+      [11, "stem", "Smart street light", "LDR + LED: auto on at dark, off in light. Cover/uncover to test.", 45],
+      [12, "comp", "What Is the Internet?", "Story-based intro: global network", 45],
+      [13, "comp", "Web Browser Navigation", "URL bar, back/forward, refresh", 45],
+      [14, "stem", "DHT sensor: temp & humidity", "Read classroom temp + humidity. Who can predict tomorrow's weather?", 45],
+      [15, "comp", "Search Engines", "Keyword search practice (e.g., Kiddle)", 45],
+      [16, "stem", "Heat alarm", "DHT + buzzer: if temp > 35°C → buzzer beeps. Safety device!", 45],
+      [17, "comp", "Evaluating Web Content", "Identify safe sites vs. ads", 45],
+      [18, "comp", "Internet Safety Deep Dive", "Strong passwords, avoid pop-ups, cyberbullying", 45],
+      [19, "stem", "IR sensor motion LED", "Wave hand in front of IR sensor — LED turns on!", 45],
+      [20, "comp", "Introduction to Email", "Compose, send, and receive a simple email message", 45],
+      [21, "stem", "RGB + color theory", "Mix Red+Blue=Purple? Test on RGB LED. Compare to paint mixing.", 45],
+      [22, "comp", "Digital Portfolio Setup", "Organize best work into a simple folder structure", 45],
+      [23, "comp", "Keyboard Shortcuts", "Copy (Ctrl+C), Paste (Ctrl+V), Undo (Ctrl+Z)", 45],
+      [24, "stem", "7-segment display", "Upload code showing 0–9. Students identify each segment.", 45],
+      [25, "comp", "Spreadsheet Intro", "Enter data into cells, basic formatting (borders, colors)", 45],
+      [26, "proj", "Weather display", "DHT + 7-segment: show temperature number on display.", 45],
+      [27, "comp", "Creating Charts", "Create a bar chart from given data", 45],
+      [28, "comp", "Collaborative Document", "In pairs, co-create a 'My School' poster in a shared document", 45],
+      [29, "proj", "Debug day", "Fix each other's circuits. Learn from mistakes. Group test.", 45],
+      [30, "show", "Whole year review in Summary", 45]
+    ]
+  },
+  4: {
+    "age": "9-10",
+    "days": [
+      [1, "comp", "Desktop & Taskbar Features", "Identify Start menu, taskbar icons, quick launch", 45],
+      [2, "stem", "Arduino IDE setup", "Install, connect board, upload first sketch. Serial Monitor hello!", 45],
+      [3, "comp", "File Explorer Deep Dive", "Navigate folders, use address bar, list vs. detail view", 45],
+      [4, "stem", "Blink: modify code", "Change delay values. What happens with 100ms? 2000ms? Discover!", 45],
+      [5, "comp", "Control Panel & Settings", "Change volume, screen brightness, date/time", 45],
+      [6, "stem", "Quiz buzzer", "Button + buzzer: first to press = buzzer beeps. Classroom quiz!", 45],
+      [7, "comp", "Accessibility Features", "Magnifier, On-Screen Keyboard, Narrator demo", 45],
+      [8, "comp", "Spreadsheet Basics", "Enter data, edit cells, autofill", 45],
+      [9, "stem", "Potentiometer + LED", "analogRead, map() function. Knob controls LED brightness.", 45],
+      [10, "comp", "Presentation Interface", "Identify ribbon, slides pane, notes pane", 45],
+      [11, "stem", "Servo motor sweep", "Servo rotates 0–180°. Modify angle range. Discuss how it works.", 45],
+      [12, "comp", "Slide Design Principles", "Use themes, backgrounds, layout master", 45],
+      [13, "comp", "Internet Browser Basics", "Open browser, address bar, tabs, bookmarks", 45],
+      [14, "stem", "Servo + potentiometer", "Knob controls servo angle. First real input-output system!", 45],
+      [15, "comp", "Safe Web Browsing", "Recognize secure sites (https), avoid pop-ups, ask permission", 45],
+      [16, "stem", "DHT classroom station", "Display temp + humidity on Serial Monitor every 5 seconds.", 45],
+      [17, "comp", "Algorithms & Sequencing", "Write steps to make a sandwich; translate to flowchart", 45],
+      [18, "comp", "Decomposition", "Break a familiar task into parts", 45],
+      [19, "stem", "LCD: Hello World!", "Wire I2C LCD. Display name, class, and a message. Adjust contrast.", 45],
+      [20, "comp", "Pattern Recognition", "Spot patterns in number/shape sequences", 45],
+      [21, "stem", "IR motion alarm", "IR sensor + LED + buzzer: wave hand = alarm triggers!", 45],
+      [22, "comp", "Using Functions", "MAX, MIN, COUNT; apply on class score list", 45],
+      [23, "comp", "Animations & Transitions", "Apply simple entrance/exit effects and slide transitions", 45],
+      [24, "stem", "Ultrasonic sensor", "Measure distance to objects. Read cm values in Serial Monitor.", 45],
+      [25, "comp", "Formatting Text", "Font style/size, bold/italic/underline", 45],
+      [26, "proj", "Parking sensor", "Ultrasonic + LED bar graph: LEDs light up as object gets closer.", 45],
+      [27, "comp", "Working with Images", "Insert, resize, wrap text around images", 45],
+      [28, "comp", "Sorting & Filtering", "Sort names alphabetically, filter numeric data", 45],
+      [29, "proj", "Group debug session", "Teams share projects, find and fix each other's errors.", 45],
+      [30, "show", "Showcase + gallery walk", "Demos, PPT presentations, peer voting!", 45]
+    ]
+  },
+  5: {
+    "age": "10-11",
+    "days": [
+      [1, "comp", "File Explorer Advanced", "Create nested folders, customize views", 45],
+      [2, "stem", "Serial Monitor deep dive", "Print variables, sensor values, debug output. Read raw data.", 45],
+      [3, "comp", "System Settings", "Adjust power options, display resolution, time settings", 45],
+      [4, "stem", "Analog read + map()", "Potentiometer value 0–1023 mapped to LED brightness 0–255.", 45],
+      [5, "comp", "Accessibility", "Use magnifier, narrator, on-screen keyboard", 45],
+      [6, "stem", "Photoresistor mapping", "Map LDR value to LED brightness. Brighter room = dimmer LED.", 45],
+      [7, "comp", "Clipboard & Snipping Tool", "Cut-paste history, take/annotate screenshots", 45],
+      [8, "comp", "Productivity Apps", "Notepad++, simple PDF reader", 45],
+      [9, "stem", "Servo temp fan", "If DHT reads >32°C → servo-fan spins. Real automatic cooling!", 45],
+      [10, "comp", "Advanced Web Browsing", "Tabs management, bookmarks folders, incognito mode", 45],
+      [11, "stem", "Joystick + servo", "Move joystick left/right → servo turns left/right. Game controller!", 45],
+      [12, "comp", "Evaluating Online Info", "Check URLs, domain types, author credibility", 45],
+      [13, "comp", "Online Etiquette", "Draft polite email, discuss 'digital footprint'", 45],
+      [14, "stem", "PIR auto light", "PIR motion sensor + LED: someone enters room → light ON.", 45],
+      [15, "comp", "Intro to Cloud Storage", "Upload/download from Google Drive/OneDrive", 45],
+      [16, "stem", "Smart ruler", "Ultrasonic + LCD: measure object, display in cm on LCD screen.", 45],
+      [17, "comp", "Algorithms & Pseudocode", "Write steps for a daily task; convert to pseudocode", 45],
+      [18, "comp", "Decomposition & Abstraction", "Break a complex problem (e.g., school event planning)", 45],
+      [19, "stem", "Weather dashboard", "DHT + LCD + Serial Monitor: live temp + humidity display.", 45],
+      [20, "comp", "Debugging Techniques", "Find and fix errors in scripts/text documents", 45],
+      [21, "stem", "LED matrix: initials", "Upload matrix code. Change array to display own initials!", 45],
+      [22, "comp", "Word: Styles & Templates", "Apply heading styles, use built-in templates", 45],
+      [23, "comp", "Excel: Intermediate Formulas", "IF, COUNTIF, SUMIF functions", 45],
+      [24, "stem", "Auto plant watering", "Soil sensor + water pump relay: dry soil → pump runs!", 45],
+      [25, "comp", "PowerPoint: Custom Themes", "Modify master slide, apply consistent branding", 45],
+      [26, "comp", "Collaborative Tools", "Google Docs real-time editing", 45],
+      [27, "proj", "Multi-sensor project", "Combine DHT + ultrasonic + LCD in one working system.", 45],
+      [28, "comp", "Email Attachments", "Send attachments, organize emails in folders", 45],
+      [29, "proj", "Debug + improve", "Test every project with different inputs. Fix final bugs.", 45],
+      [30, "show", "Portfolio + science fair", "Present portfolio on screen. Demo STEM project. Celebrate!", 45]
+    ]
+  },
+  6: {
+    "age": "11-12",
+    "days": [
+      [1, "comp", "Advanced File Explorer", "Customize views, use search filters, compress/decompress files", 45],
+      [2, "stem", "Code structure deep dive", "Functions, variables, constants, delay vs millis(). Why each matters.", 45],
+      [3, "comp", "Installing Software", "Guided install of a free IDE (e.g. Thonny or Code::Blocks)", 45],
+      [4, "stem", "Serial Monitor debugging", "Print sensor values, identify noise, add if-conditions to filter.", 45],
+      [5, "comp", "IDE Concepts", "Explore IDE interface: editor, console, debugger", 45],
+      [6, "stem", "IR sensor + relay", "Motion detected → relay clicks → lamp turns on. Wiring + code.", 45],
+      [7, "comp", "Intro to Version Control", "Concept of 'save history,' demo with simple Git GUI", 45],
+      [8, "comp", "Command Line Basics", "Open terminal, navigate folders, basic commands", 45],
+      [9, "stem", "Smart parking sensor", "Ultrasonic + LED bar: each LED = 10cm closer. Park accurately!", 45],
+      [10, "comp", "Text Editors vs IDEs", "Compare Notepad++ vs. IDE features", 45],
+      [11, "stem", "Keypad password lock", "4-digit PIN entry. Correct → green LED + servo. Wrong → red + buzzer.", 45],
+      [12, "comp", "Python Syntax Concept", "Write first script, run in IDE", 45],
+      [13, "comp", "Variables & Data Types", "Numbers, strings, booleans; simple calculations", 45],
+      [14, "stem", "Bluetooth + LED control", "HC-05 + LED: type 'x' in app → LED on, 'y' → LED off.", 45],
+      [15, "comp", "Conditional Statements", "if, elif, else logic with examples", 45],
+      [16, "stem", "Smart classroom alert", "DHT + LCD + buzzer: if temp > 38°C → display 'Too Hot!' + beep.", 45],
+      [17, "comp", "Loops Concept", "for and while loops with counters and lists", 45],
+      [18, "comp", "Spreadsheet Audit", "Data validation rules, error checking", 45],
+      [19, "stem", "Smart garden monitor", "Soil + rain + water sensor: 3 readings on LCD screen at once.", 45],
+      [20, "comp", "Intro to Databases Concept", "Tables, records, primary keys (conceptual)", 45],
+      [21, "stem", "Motor driver: DC control", "L298N: motor forward, backward, speed control with PWM.", 45],
+      [22, "comp", "Algorithms & Flowcharts", "Draft flowchart for programming or web process", 45],
+      [23, "comp", "Lists & Dictionaries", "Create, access, modify collections", 45],
+      [24, "stem", "Auto corridor light", "PIR + relay + LED strip: movement in hall → light turns on.", 45],
+      [25, "comp", "HTML Structure & Tags", "Create a basic index.html with headings, paragraphs", 45],
+      [26, "proj", "Smart home device", "Build one: auto fan, smart lock, garden monitor, or parking aid.", 45],
+      [27, "comp", "CSS Basics Concept", "Inline vs. internal stylesheets; color, font-size", 45],
+      [28, "comp", "Advanced Formulas", "VLOOKUP, CONCATENATE, TEXT functions", 45],
+      [29, "proj", "Test + improve", "Stress-test project with different scenarios. Fix last bugs.", 45],
+      [30, "show", "Innovation fair", "Live demos + poster gallery + community tech showcase. Vote!", 45]
+    ]
+  },
+  7: {
+    "age": "12-13",
+    "days": [
+      [1, "comp", "Hardware: Motherboard & Buses", "Label a motherboard diagram; identify ports", 45],
+      [2, "stem", "Advanced Arduino code", "Functions, arrays, for-loops in code. Write cleaner sketches.", 45],
+      [3, "comp", "CPU, RAM & Storage", "Compare RAM vs. ROM vs. HDD/SSD", 45],
+      [4, "stem", "Keypad calculator", "Keypad + LCD: press numbers and + − × ÷ → show result on LCD!", 45],
+      [5, "comp", "Binary Number System", "Represent decimal 1–8 in binary", 45],
+      [6, "stem", "Auto gate (servo + HC-SR04)", "Object within 10cm → servo gate opens. Move away → gate closes.", 45],
+      [7, "ai", "What is AI?", "Difference between explicit programming and Machine Learning.", 45],
+      [8, "comp", "Number Systems in Computing", "Why computers use binary/hex", 45],
+      [9, "stem", "RFID attendance system", "Tap card → LCD shows name. Different card → 'Unknown user'.", 45],
+      [10, "ai", "How AI Learns", "Training data, testing data, and simple models.", 45],
+      [11, "stem", "RFID smart lock", "Authorized card → relay clicks → door servo opens. Others denied.", 45],
+      [12, "ai", "Computer Vision Concept", "How computers 'see' images using pixels.", 45],
+      [13, "comp", "Computer Viruses & Malware", "Case studies of famous viruses", 45],
+      [14, "stem", "RTC alarm clock", "DS3231 reads real time. When minutes match target → buzzer!", 45],
+      [15, "comp", "Antivirus Strategies", "Demo antivirus scan; update habits", 45],
+      [16, "stem", "PIR + RTC smart timer", "If person enters before 9am AND motion detected → mark present.", 45],
+      [17, "ai", "Chatbots & NLP", "How chatbots understand and generate text.", 45],
+      [18, "comp", "Safe Password Practices", "Create strong password posters", 45],
+      [19, "stem", "Line follower robot", "2 IR sensors + L298N + DC motors: follows black tape on white paper.", 45],
+      [20, "ai", "Ethics in AI", "Discussing bias in AI and why diverse data matters.", 45],
+      [21, "stem", "Bluetooth RC car", "HC-05 + L298N + DC motors: control car direction from phone!", 45],
+      [22, "ai", "AI vs Human Intelligence", "Comparing tasks humans are good at vs AI.", 45],
+      [23, "comp", "Digital Footprint & Privacy", "Map your own digital trail", 45],
+      [24, "proj", "Multi-sensor integration", "Combine 3+ sensors with LCD + one actuator. One full working system.", 45],
+      [25, "comp", "Online Etiquette", "Role-play respectful communication", 45],
+      [26, "proj", "Capstone: student choice", "Build any project: auto plant, robot, security, weather, music.", 45],
+      [27, "comp", "Intellectual Property", "Compare original vs. plagiarized work", 45],
+      [28, "comp", "Database Concepts", "Tables, Records & Fields", 45],
+      [29, "proj", "Final test + document", "Write a 1-page project report: aim, parts, code, result, improvement.", 45],
+      [30, "show", "Innovation fair + web launch", "Demo projects. View class website.", 45]
+    ]
+  },
+  8: {
+    "age": "13-14",
+    "days": [
+      [1, "comp", "Python GUI Concepts", "What Python could be used for, Tkinter intro", 45],
+      [2, "stem", "Libraries + error debugging", "Install library via ZIP. Read error messages. Fix common bugs.", 45],
+      [3, "comp", "Compilers vs Interpreters", "What is a compiler, What is an interpreter", 45],
+      [4, "stem", "Smart classroom bell", "RTC + relay: auto ring buzzer at end of each period. Set 8 periods.", 45],
+      [5, "comp", "Datatypes and Variables", "Conceptual overview of basic programming datatypes", 45],
+      [6, "stem", "Advanced RFID security", "RFID + relay + green/red LED: authorized list stored in array.", 45],
+      [7, "ai", "Intro to Generative AI", "What is GenAI? How text/image generation works.", 45],
+      [8, "comp", "Control Structures", "Understanding if-else logic in software", 45],
+      [9, "stem", "ESP8266 WiFi connect", "Connect module to WiFi. Print IP address in Serial Monitor.", 45],
+      [10, "comp", "Loops & Logic", "Introduction to loops and conditional statements", 45],
+      [11, "stem", "Blynk IoT: LED from anywhere", "ESP8266 + LED + Blynk app. Toggle LED from phone over WiFi!", 45],
+      [12, "ai", "Prompt Engineering", "Techniques for writing effective prompts for LLMs.", 45],
+      [13, "comp", "Cybersecurity: Malware", "Case studies of famous viruses", 45],
+      [14, "stem", "WiFi weather station", "DHT + ESP8266: send temp + humidity to free cloud (ThingSpeak).", 45],
+      [15, "comp", "Antivirus & Protection", "Brainstorm good update/backup habits", 45],
+      [16, "stem", "Remote distance monitor", "Ultrasonic + ESP8266: view distance reading live in browser!", 45],
+      [17, "ai", "Deep Learning Basics", "Conceptual introduction to neural networks.", 45],
+      [18, "comp", "Digital Footprint", "Discuss data sharing scenarios", 45],
+      [19, "stem", "WiFi RC car", "L298N + ESP8266: web page with arrow buttons controls car!", 45],
+      [20, "comp", "Safe Passwords", "Password strength challenge", 45],
+      [21, "proj", "Smart home system", "PIR + DHT + WiFi + LCD: motion alert + live temp in one build.", 45],
+      [22, "ai", "AI in Daily Life", "Identifying AI in recommendation systems (Netflix, YouTube).", 45],
+      [23, "comp", "Intellectual Property", "Compare original vs. plagiarized work", 45],
+      [24, "proj", "Capstone planning", "Student designs full IoT project. Sketch circuit, write pseudocode.", 45],
+      [25, "comp", "Database Concepts", "Build a Student Directory table on paper", 45],
+      [26, "proj", "Capstone: build + code", "Wire circuit, write code, upload, test with multiple scenarios.", 45],
+      [27, "ai", "Bias and Fairness", "Case studies on AI decision making.", 45],
+      [28, "comp", "Primary Keys", "Link two small tables", 45],
+      [29, "proj", "Final demo prep", "Polish project. Write 1-page report. Create 3-slide PPT.", 45],
+      [30, "show", "IoT project fair", "Live demos, cloud dashboards, code walkthrough. Peer Q&A!", 45]
+    ]
+  },
+  9: {
+    "age": "14-15",
+    "days": [
+      [1, "comp", "System Admin Basics", "Admin vs user accounts. OS types (Windows/Linux).", 45],
+      [2, "stem", "Advanced Arduino", "Interrupts, millis() for multitasking, struct for data grouping.", 45],
+      [3, "comp", "Cloud Storage Concepts", "Shared docs, cloud folders, offline sync.", 45],
+      [4, "stem", "Full IoT system", "WiFi + 3 sensors + LCD + cloud dashboard. Complete smart device.", 45],
+      [5, "comp", "Cybersecurity Advanced", "Phishing roleplay. Spot fake emails.", 45],
+      [6, "stem", "Python + hardware (concept)", "How Raspberry Pi runs Python to control GPIO pins. Live demo.", 45],
+      [7, "ai", "AI Concepts: How it works", "ML vs rule-based systems. Real-world examples.", 45],
+      [8, "comp", "Data Science Concepts", "Collect class survey data. Clean & format.", 45],
+      [9, "proj", "Prototype sprint 1", "Rapid prototype for chosen problem. Use whatever parts available.", 45],
+      [10, "ai", "Neural Networks", "Nodes, layers, weights, and biases (conceptual).", 45],
+      [11, "stem", "Robot arm project", "L293D shield + servo joints = articulated arm. Controlled by keypad.", 45],
+      [12, "ai", "Sentiment Analysis", "How AI determines positive/negative tone in text.", 45],
+      [13, "comp", "Entrepreneurship Basics", "Idea → prototype → market → pitch.", 45],
+      [14, "proj", "Community solution: wire", "Build the circuit for your community project. Test inputs/outputs.", 45],
+      [15, "comp", "Network Basics", "How the internet works, IP addresses, DNS.", 45],
+      [16, "proj", "Community solution: code", "Add code logic: sensor → decision → actuator. Display feedback.", 45],
+      [17, "ai", "AI vs Non-AI Debate", "Which tasks absolutely need AI? Class debate.", 45],
+      [18, "ai", "Future of Work with AI", "How AI will change jobs and necessary human skills.", 45],
+      [19, "stem", "AI + hardware link", "Voice recognition demo. How Alexa hears + responds. Discuss bias.", 45],
+      [20, "ai", "Building an AI Assistant Concept", "Combining APIs for Speech, LLM, and TTS.", 45],
+      [21, "proj", "Community project: test", "Test with real users (classmates, teachers). Document feedback.", 45],
+      [22, "ai", "AI Tools Exploration", "Comparing ChatGPT, Gemini, Canva AI conceptually.", 45],
+      [23, "comp", "HTML & CSS Advanced", "CSS Box Model, Flexbox layout concepts.", 45],
+      [24, "proj", "Iterate + improve", "Apply user feedback. Improve both code and physical build.", 45],
+      [25, "comp", "JavaScript Intro", "What is JS? Adding interactivity to web pages.", 45],
+      [26, "proj", "Polish + document", "Final build, write 2-page project report, prepare 5-slide pitch deck.", 45],
+      [27, "ai", "AI Safety & Regulations", "Why we need rules for AI development.", 45],
+      [28, "comp", "Version Control", "Git concepts: commit, push, pull, branch.", 45],
+      [29, "proj", "Final rehearsal", "Full run of demo + pitch. Peer panel gives feedback. Refine.", 45],
+      [30, "show", "Startup pitch + showcase", "Live pitches to panel. Community project demos. Awards!", 60]
+    ]
+  }
+};
+
+const typeBadge=(t)=>`<span class="badge ${T[t]}">${TL[t]}</span>`;
+const gradeInfo={
+  1:"Age 6–7 · 45 min sessions",
+  2:"Age 7–8 · 45 min sessions",
+  3:"Age 8–9 · 45 min sessions",
+  4:"Age 9–10 · 45 min sessions",
+  5:"Age 10–11 · 45 min sessions",
+  6:"Age 11–12 · 45 min sessions",
+  7:"Age 12–13 · 45 min sessions",
+  8:"Age 13–14 · 45 min sessions",
+  9:"Age 14–15 · 45–60 min sessions"
+};
+
+let currentGrade=1;
+
+function renderGrade(g){
+  currentGrade=g;
+  document.getElementById('cardTitle').textContent=`Grade ${g} — 30-Day Plan`;
+  document.getElementById('cardSub').textContent=gradeInfo[g];
+  const data=plans[g].days;
+  const tbody=document.getElementById('planBody');
+  tbody.innerHTML=data.map(([d,t,topic,act,tm])=>
+    `<tr>
+      <td class="daynum">${d}</td>
+      <td class="type-cell">${typeBadge(t)}</td>
+      <td class="topic-cell">${topic}</td>
+      <td class="act-cell">${act}</td>
+      <td class="time-cell">${tm} min</td>
+    </tr>`
+  ).join('');
+  document.querySelectorAll('.gbtn').forEach(b=>{
+    b.classList.toggle('active',parseInt(b.dataset.g)===g)
+  });
+}
+
+const bar=document.getElementById('gradeBar');
+for(let i=1;i<=9;i++){
+  const b=document.createElement('button');
+  b.className='gbtn';
+  b.dataset.g=i;
+  b.textContent=`Grade ${i}`;
+  b.onclick=()=>renderGrade(i);
+  bar.appendChild(b);
+}
+renderGrade(1);
+</script>
+</body>
+</html>
